@@ -1,0 +1,20 @@
+.jumbotron
+	form.ng-scope.ng-pristine.ng-invalid.ng-invalid-required(ng-hide="lg.authService.isAuthed()" name="form" ng-submit="lg.login()" role="form")
+		.form-group
+			label(for="username") Username
+			i.fa.fa-key
+			input#username.form-control.ng-pristine.ng-invalid.ng-invalid-required(type="text" name="username" ng-model="lg.username" required pattern="[A-Za-z]{4,}")
+		.form-group
+			label(for="password") Password
+			i.fa.fa-key
+			input#password.form-control.ng-pristine.ng-invalid.ng-invalid-required(type="password" name="password" ng-model="lg.password" required)
+		.form-group
+			button.btn.btn-danger(type="submit" ng-disabled="form.$invalid || dataLoading" disabled) Login
+		.form-actions.bg-danger(ng-show="lg.error") {{lg.error}}
+
+	div.form-actions(ng-show="lg.authService.getToken()")
+		bg.bg-success.login_sucess Successful Login
+		div
+			label(for="token") Your Token
+			input#token.form-control.ng-pristine(type="text" name="token" value="{{lg.authService.getToken()}}") 
+
