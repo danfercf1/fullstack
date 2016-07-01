@@ -1,1 +1,19 @@
-div This is the users view.
+.bg.bg-danger(ng-hide="") You are not authorized, you need to login
+div(ng-hide="")
+	button#addbutton.btn.btn-sm.btn-success(type="button" ng-click="adduser=!adduser")
+		i.glyphicon.glyphicon-plus Add new user
+	.center(ng-hide="adduser")
+		.col-lg-12.col-sm-12.col.sx-12
+			form.ng-scope.ng-pristine.ng-invalid.ng-invalid-required
+				.form-group
+					label(for="firstname") First Name
+						i.fa.fa-key
+					input#firstname.form-control.ng-pristine.ng-invalid.ng-invalid-required(type="text" name="firstname" ng-model="firstname" required)
+					span.help-block.ng-hide(ng-show="form.firstname.$dirty &amp;&amp; form.firstname.$error.required") First Name is required
+				.form-group
+					label(for="lastname") Last Name
+						i.fa.fa-key
+					input#lastname.form-control.ng-pristine.ng-invalid.ng-invalid-required(type="text" name="lastname" ng-model="lastname" required)
+					span.help-block.ng-hide(ng-show="form.lastname.$dirty &amp;&amp; form.firstname.$error.required") First Name is required
+
+
